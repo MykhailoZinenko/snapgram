@@ -67,7 +67,6 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 });
             }
 
-            console.log(updatedPost);
             return navigate(`/posts/${post.$id}`);
         }
 

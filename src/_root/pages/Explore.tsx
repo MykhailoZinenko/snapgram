@@ -23,8 +23,6 @@ const Explore = () => {
         if (inView && !searchValue) fetchNextPage();
     }, [inView, searchValue]);
 
-    console.log(debouncedValue, searchedPosts);
-
     if (!posts) {
         return (
             <div className="flex-center w-full h-full">
@@ -32,8 +30,6 @@ const Explore = () => {
             </div>
         );
     }
-
-    console.log(posts);
 
     const shouldShowSearchResults = searchValue !== "";
     const shouldShowPosts =
