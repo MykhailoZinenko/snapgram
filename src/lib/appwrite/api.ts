@@ -317,7 +317,7 @@ export async function deletePost(postId: string, imageId: string) {
             postId,
             {
                 creator: null,
-                save: null,
+                likes: [],
             }
         );
 
