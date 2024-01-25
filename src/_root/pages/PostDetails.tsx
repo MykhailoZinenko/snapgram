@@ -105,7 +105,7 @@ const PostDetails = () => {
 
                         <div className="flex flex-col flex-1 gap-1 w-full small-medium lg:base-regular">
                             <p>{post?.caption}</p>
-                            <ul className="flex gap-1.5 mt-2">
+                            <ul className="flex gap-1.5 mt-2 w-full flex-wrap">
                                 {post?.tags.map((tag: string) => (
                                     <li
                                         key={tag}
