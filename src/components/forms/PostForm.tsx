@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -17,9 +16,8 @@ import { Textarea } from "../ui/textarea";
 import FileUploader from "../shared/FileUploader";
 import { PostValidation } from "@/lib/validation";
 import { Models } from "appwrite";
-import { User } from "lucide-react";
 import { useUserContext } from "@/context/AuthContext";
-import { toast, useToast } from "../ui/use-toast";
+import { useToast } from "../ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import {
     useCreatePost,
