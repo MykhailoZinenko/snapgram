@@ -13,6 +13,7 @@ import {
     getInfinitePosts,
     getPostById,
     getRecentPosts,
+    getRelatedPosts,
     likePost,
     savePost,
     searchPosts,
@@ -74,8 +75,6 @@ export const useLikePost = () => {
             likesArray: string[];
         }) => likePost(postId, likesArray),
         onSuccess: (data) => {
-            console.log(data?.$id);
-
             queryClient.refetchQueries({
                 queryKey: [QUERY_KEYS.GET_POST_BY_ID, data?.$id],
             });
@@ -200,5 +199,12 @@ export const useSearchPosts = (searchTerm: string) => {
         queryKey: [QUERY_KEYS.SEARCH_POSTS, searchTerm],
         queryFn: () => searchPosts(searchTerm),
         enabled: !!searchTerm,
+    });
+};
+
+export const useGetUserPosts = (userId: string, currentPostId: string) => {
+    return useQuery({
+        queryKey: [QUERY_KEYS.GET_USER_POSTS, userId, currentPostId],
+        queryFn: () => getRelatedPosts(userId, currentPostId),
     });
 };

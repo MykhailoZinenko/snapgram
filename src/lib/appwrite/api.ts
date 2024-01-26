@@ -368,3 +368,22 @@ export async function searchPosts(searchTerm: string) {
         console.log(error);
     }
 }
+
+export async function getRelatedPosts(userId: string, currentPostId: string) {
+    try {
+        const userPosts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.postCollectionId,
+            [
+                Query.notEqual("creator", userId),
+                Query.notEqual("$id", currentPostId),
+            ]
+        );
+
+        if (!userPosts) throw Error;
+
+        return userPosts;
+    } catch (error) {
+        console.log(error);
+    }
+}
